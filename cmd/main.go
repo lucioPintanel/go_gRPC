@@ -5,13 +5,13 @@ import (
 	"flag"
 	"fmt"
 	"grpccli_srv/pb"
-	"log"
 	"os"
 
 	logs "grpccli_srv/internal/logs"
 	server "grpccli_srv/internal/servidor"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 func main() {
@@ -40,17 +40,18 @@ func main() {
 }
 
 func runClient() {
-	conn, err := grpc.NewClient("localhost:50051", grpc.WithInsecure())
+	logs.Logger.Info("Iniciando o cliente - localhost:50051")
+	conn, err := grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		log.Fatalf("não foi possível se conectar: %v", err)
+		logs.Logger.Sugar().Fatalf("não foi possível se conectar: %v", err)
 	}
 	defer conn.Close()
 
 	c := pb.NewMeuServicoClient(conn)
 	r, err := c.MeuMetodo(context.Background(), &pb.MeuRequest{Mensagem: "Olá, servidor!"})
 	if err != nil {
-		log.Fatalf("erro ao chamar MeuMetodo: %v", err)
+		logs.Logger.Sugar().Fatalf("erro ao chamar MeuMetodo: %v", err)
 	}
 
-	log.Printf("Resposta do servidor: %s", r.Resposta)
+	logs.Logger.Sugar().Debugf("Resposta do servidor: %s", r.Resposta)
 }
