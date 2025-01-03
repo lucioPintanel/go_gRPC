@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package grpccli_srv;
+
+option go_package = "./pb";
+
+service MeuServico {
+    rpc MeuMetodo (MeuRequest) returns (MeuResponse);
+}
+
+message MeuRequest {
+    string mensagem = 1;
+}
+
+message MeuResponse {
+    string resposta = 1;
+}
