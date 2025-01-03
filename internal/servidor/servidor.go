@@ -5,6 +5,8 @@ import (
 	"net"
 	"os"
 
+	logs "grpccli_srv/internal/logs"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )
@@ -26,6 +28,8 @@ func NewGRPCServer() *grpc.Server {
 }
 
 func (s *Server) Start() {
+	logs.Logger.Info("Iniciando o servidor na porta de acesso 50051")
+
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		os.Exit(1)

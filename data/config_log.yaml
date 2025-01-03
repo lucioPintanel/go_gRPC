@@ -1,0 +1,19 @@
+logging:
+  level: "debug"  # Nível de log: debug, info, warn, error
+  encoding: "json"  # Formato do log: json, console
+  outputPaths:
+    - "stdout"
+  errorOutputPaths:
+    - "stderr"
+  encoderConfig:
+    timeKey: "timestamp"
+    levelKey: "level"
+    nameKey: "logger"
+    callerKey: "caller"
+    messageKey: "msg"
+    stacktraceKey: "stacktrace"
+    lineEnding: ""
+    levelEncoder: "lowercase"
+    timeEncoder: "iso8601"
+    durationEncoder: "string"
+    callerEncoder: "fullpath"
