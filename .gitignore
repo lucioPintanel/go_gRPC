@@ -427,3 +427,6 @@ FodyWeavers.xsd
 *.odt
 report.xml
 diffFile.txt
+
+# Mas não ignorar logs.go 
+!internal/logs/logs.go
