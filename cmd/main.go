@@ -28,8 +28,8 @@ func main() {
 		runClient()
 	} else if *serverFlag {
 		// Lógica do servidor
-		server.NewGRPCServer()
-		//s.Start()
+		s := server.Server{}
+		s.Start()
 	} else {
 		fmt.Println("Por favor, use uma flag para especificar o modo: -c para cliente ou -s para servidor")
 		os.Exit(1)
