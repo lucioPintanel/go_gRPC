@@ -20,6 +20,9 @@ func main() {
 	serverFlag := flag.Bool("s", false, "Executar como servidor")
 	flag.Parse()
 
+	// Inicializando o ponteiro
+	logs.InitLogs()
+
 	// Inicializando o log
 	logs.Logger.Info("Iniciando aplicação...")
 
