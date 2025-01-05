@@ -24,27 +24,28 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type MeuRequest struct {
+type CreateProdutoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mensagem      string                 `protobuf:"bytes,1,opt,name=mensagem,proto3" json:"mensagem,omitempty"`
+	Descricao     string                 `protobuf:"bytes,1,opt,name=descricao,proto3" json:"descricao,omitempty"`
+	Categoria     string                 `protobuf:"bytes,2,opt,name=categoria,proto3" json:"categoria,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MeuRequest) Reset() {
-	*x = MeuRequest{}
+func (x *CreateProdutoRequest) Reset() {
+	*x = CreateProdutoRequest{}
 	mi := &file_proto_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MeuRequest) String() string {
+func (x *CreateProdutoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MeuRequest) ProtoMessage() {}
+func (*CreateProdutoRequest) ProtoMessage() {}
 
-func (x *MeuRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateProdutoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -56,39 +57,49 @@ func (x *MeuRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MeuRequest.ProtoReflect.Descriptor instead.
-func (*MeuRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateProdutoRequest.ProtoReflect.Descriptor instead.
+func (*CreateProdutoRequest) Descriptor() ([]byte, []int) {
 	return file_proto_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MeuRequest) GetMensagem() string {
+func (x *CreateProdutoRequest) GetDescricao() string {
 	if x != nil {
-		return x.Mensagem
+		return x.Descricao
 	}
 	return ""
 }
 
-type MeuResponse struct {
+func (x *CreateProdutoRequest) GetCategoria() string {
+	if x != nil {
+		return x.Categoria
+	}
+	return ""
+}
+
+type ProdutoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Resposta      string                 `protobuf:"bytes,1,opt,name=resposta,proto3" json:"resposta,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Descricao     string                 `protobuf:"bytes,2,opt,name=descricao,proto3" json:"descricao,omitempty"`
+	DataCriacao   string                 `protobuf:"bytes,3,opt,name=data_criacao,json=dataCriacao,proto3" json:"data_criacao,omitempty"`
+	Categoria     string                 `protobuf:"bytes,4,opt,name=categoria,proto3" json:"categoria,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MeuResponse) Reset() {
-	*x = MeuResponse{}
+func (x *ProdutoResponse) Reset() {
+	*x = ProdutoResponse{}
 	mi := &file_proto_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MeuResponse) String() string {
+func (x *ProdutoResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MeuResponse) ProtoMessage() {}
+func (*ProdutoResponse) ProtoMessage() {}
 
-func (x *MeuResponse) ProtoReflect() protoreflect.Message {
+func (x *ProdutoResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -100,14 +111,35 @@ func (x *MeuResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MeuResponse.ProtoReflect.Descriptor instead.
-func (*MeuResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProdutoResponse.ProtoReflect.Descriptor instead.
+func (*ProdutoResponse) Descriptor() ([]byte, []int) {
 	return file_proto_service_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MeuResponse) GetResposta() string {
+func (x *ProdutoResponse) GetId() int32 {
 	if x != nil {
-		return x.Resposta
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ProdutoResponse) GetDescricao() string {
+	if x != nil {
+		return x.Descricao
+	}
+	return ""
+}
+
+func (x *ProdutoResponse) GetDataCriacao() string {
+	if x != nil {
+		return x.DataCriacao
+	}
+	return ""
+}
+
+func (x *ProdutoResponse) GetCategoria() string {
+	if x != nil {
+		return x.Categoria
 	}
 	return ""
 }
@@ -116,19 +148,27 @@ var File_proto_service_proto protoreflect.FileDescriptor
 
 var file_proto_service_proto_rawDesc = []byte{
 	0x0a, 0x13, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x67, 0x72, 0x70, 0x63, 0x63, 0x6c, 0x69, 0x5f, 0x73,
-	0x72, 0x76, 0x22, 0x28, 0x0a, 0x0a, 0x4d, 0x65, 0x75, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x6e, 0x73, 0x61, 0x67, 0x65, 0x6d, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x6e, 0x73, 0x61, 0x67, 0x65, 0x6d, 0x22, 0x29, 0x0a, 0x0b,
-	0x4d, 0x65, 0x75, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x72,
-	0x65, 0x73, 0x70, 0x6f, 0x73, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x72,
-	0x65, 0x73, 0x70, 0x6f, 0x73, 0x74, 0x61, 0x32, 0x4c, 0x0a, 0x0a, 0x4d, 0x65, 0x75, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x6f, 0x12, 0x3e, 0x0a, 0x09, 0x4d, 0x65, 0x75, 0x4d, 0x65, 0x74, 0x6f,
-	0x64, 0x6f, 0x12, 0x17, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x63, 0x6c, 0x69, 0x5f, 0x73, 0x72, 0x76,
-	0x2e, 0x4d, 0x65, 0x75, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x67, 0x72,
-	0x70, 0x63, 0x63, 0x6c, 0x69, 0x5f, 0x73, 0x72, 0x76, 0x2e, 0x4d, 0x65, 0x75, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x02, 0x70, 0x62, 0x22, 0x52, 0x0a, 0x14, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x12,
+	0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x22, 0x80, 0x01,
+	0x0a, 0x0f, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69,
+	0x64, 0x12, 0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x12,
+	0x21, 0x0a, 0x0c, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x63, 0x72, 0x69, 0x61, 0x63, 0x61, 0x6f, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x61, 0x74, 0x61, 0x43, 0x72, 0x69, 0x61, 0x63,
+	0x61, 0x6f, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61,
+	0x32, 0x50, 0x0a, 0x0e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64,
+	0x75, 0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50,
+	0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e,
+	0x70, 0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -145,12 +185,12 @@ func file_proto_service_proto_rawDescGZIP() []byte {
 
 var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_proto_service_proto_goTypes = []any{
-	(*MeuRequest)(nil),  // 0: grpccli_srv.MeuRequest
-	(*MeuResponse)(nil), // 1: grpccli_srv.MeuResponse
+	(*CreateProdutoRequest)(nil), // 0: pb.CreateProdutoRequest
+	(*ProdutoResponse)(nil),      // 1: pb.ProdutoResponse
 }
 var file_proto_service_proto_depIdxs = []int32{
-	0, // 0: grpccli_srv.MeuServico.MeuMetodo:input_type -> grpccli_srv.MeuRequest
-	1, // 1: grpccli_srv.MeuServico.MeuMetodo:output_type -> grpccli_srv.MeuResponse
+	0, // 0: pb.ProdutoService.CreateProduto:input_type -> pb.CreateProdutoRequest
+	1, // 1: pb.ProdutoService.CreateProduto:output_type -> pb.ProdutoResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -191,72 +231,72 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// MeuServicoClient is the client API for MeuServico service.
+// ProdutoServiceClient is the client API for ProdutoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type MeuServicoClient interface {
-	MeuMetodo(ctx context.Context, in *MeuRequest, opts ...grpc.CallOption) (*MeuResponse, error)
+type ProdutoServiceClient interface {
+	CreateProduto(ctx context.Context, in *CreateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
 }
 
-type meuServicoClient struct {
+type produtoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMeuServicoClient(cc grpc.ClientConnInterface) MeuServicoClient {
-	return &meuServicoClient{cc}
+func NewProdutoServiceClient(cc grpc.ClientConnInterface) ProdutoServiceClient {
+	return &produtoServiceClient{cc}
 }
 
-func (c *meuServicoClient) MeuMetodo(ctx context.Context, in *MeuRequest, opts ...grpc.CallOption) (*MeuResponse, error) {
-	out := new(MeuResponse)
-	err := c.cc.Invoke(ctx, "/grpccli_srv.MeuServico/MeuMetodo", in, out, opts...)
+func (c *produtoServiceClient) CreateProduto(ctx context.Context, in *CreateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error) {
+	out := new(ProdutoResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/CreateProduto", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MeuServicoServer is the server API for MeuServico service.
-type MeuServicoServer interface {
-	MeuMetodo(context.Context, *MeuRequest) (*MeuResponse, error)
+// ProdutoServiceServer is the server API for ProdutoService service.
+type ProdutoServiceServer interface {
+	CreateProduto(context.Context, *CreateProdutoRequest) (*ProdutoResponse, error)
 }
 
-// UnimplementedMeuServicoServer can be embedded to have forward compatible implementations.
-type UnimplementedMeuServicoServer struct {
+// UnimplementedProdutoServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedProdutoServiceServer struct {
 }
 
-func (*UnimplementedMeuServicoServer) MeuMetodo(context.Context, *MeuRequest) (*MeuResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method MeuMetodo not implemented")
+func (*UnimplementedProdutoServiceServer) CreateProduto(context.Context, *CreateProdutoRequest) (*ProdutoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProduto not implemented")
 }
 
-func RegisterMeuServicoServer(s *grpc.Server, srv MeuServicoServer) {
-	s.RegisterService(&_MeuServico_serviceDesc, srv)
+func RegisterProdutoServiceServer(s *grpc.Server, srv ProdutoServiceServer) {
+	s.RegisterService(&_ProdutoService_serviceDesc, srv)
 }
 
-func _MeuServico_MeuMetodo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MeuRequest)
+func _ProdutoService_CreateProduto_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProdutoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeuServicoServer).MeuMetodo(ctx, in)
+		return srv.(ProdutoServiceServer).CreateProduto(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpccli_srv.MeuServico/MeuMetodo",
+		FullMethod: "/pb.ProdutoService/CreateProduto",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeuServicoServer).MeuMetodo(ctx, req.(*MeuRequest))
+		return srv.(ProdutoServiceServer).CreateProduto(ctx, req.(*CreateProdutoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _MeuServico_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "grpccli_srv.MeuServico",
-	HandlerType: (*MeuServicoServer)(nil),
+var _ProdutoService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "pb.ProdutoService",
+	HandlerType: (*ProdutoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "MeuMetodo",
-			Handler:    _MeuServico_MeuMetodo_Handler,
+			MethodName: "CreateProduto",
+			Handler:    _ProdutoService_CreateProduto_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

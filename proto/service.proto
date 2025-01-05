@@ -1,17 +1,22 @@
 syntax = "proto3";
 
-package grpccli_srv;
+package pb;
 
 option go_package = "./pb";
 
-service MeuServico {
-    rpc MeuMetodo (MeuRequest) returns (MeuResponse);
+service ProdutoService {
+    rpc CreateProduto(CreateProdutoRequest) returns (ProdutoResponse);
+    // Outras operações CRUD (GetProdutoByID, UpdateProduto, DeleteProduto, GetAllProdutos)
 }
 
-message MeuRequest {
-    string mensagem = 1;
+message CreateProdutoRequest {
+    string descricao = 1;
+    string categoria = 2;
 }
 
-message MeuResponse {
-    string resposta = 1;
+message ProdutoResponse {
+    int32 id = 1;
+    string descricao = 2;
+    string data_criacao = 3;
+    string categoria = 4;
 }

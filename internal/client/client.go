@@ -12,29 +12,33 @@ import (
 )
 
 const (
-	address     = "localhost:50051"
-	defaultName = "world"
+	address = "localhost:50051"
 )
 
 func RunClient() {
 	// Estabelecer a conexão com o servidor gRPC sem TLS
-	conn, err := grpc.NewClient(address,
-		grpc.WithTransportCredentials(insecure.NewCredentials()),
-	)
+	conn, err := grpc.Dial(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		logs.Logger.Sugar().DPanicf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	client := pb.NewMeuServicoClient(conn)
+	client := pb.NewProdutoServiceClient(conn)
 
 	// Preparar o contexto com timeout para a solicitação
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	// Enviar a solicitação ao servidor
-	r, err := client.MeuMetodo(ctx, &pb.MeuRequest{Mensagem: "Olá, servidor!"})
-	if err != nil {
-		logs.Logger.Sugar().DPanicf("could not send message: %v", err)
+	// Criar um novo produto
+	req := &pb.CreateProdutoRequest{
+		Descricao: "Novo Produto",
+		Categoria: "Categoria Exemplo",
 	}
-	logs.Logger.Sugar().Debugf("Resposta do servidor: %s", r.GetResposta())
+
+	// Enviar a solicitação ao servidor
+	r, err := client.CreateProduto(ctx, req)
+	if err != nil {
+		logs.Logger.Sugar().DPanicf("could not create produto: %v", err)
+	}
+	logs.Logger.Sugar().Debugf("Produto criado: ID=%d, Descricao=%s, DataCriacao=%s, Categoria=%s",
+		r.GetId(), r.GetDescricao(), r.GetDataCriacao(), r.GetCategoria())
 }
