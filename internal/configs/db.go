@@ -22,4 +22,6 @@ func InitDB() {
 	}
 
 	logs.Logger.Debug("Database connection established")
+
+	createProductTable()
 }
