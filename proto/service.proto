@@ -6,7 +6,8 @@ option go_package = "./pb";
 
 service ProdutoService {
     rpc CreateProduto(CreateProdutoRequest) returns (ProdutoResponse);
-    rpc UpdateProduto(UpdateProdutoRequest) returns (ProdutoResponse);  // Novo método
+    rpc UpdateProduto(UpdateProdutoRequest) returns (ProdutoResponse); 
+    rpc DeleteProduto(DeleteProdutoRequest) returns (DeleteProdutoResponse);
 }
 
 message CreateProdutoRequest {
@@ -25,4 +26,12 @@ message ProdutoResponse {
     string descricao = 2;
     string data_criacao = 3;
     string categoria = 4;
+}
+
+message DeleteProdutoRequest {
+    int32 id = 1;
+}
+
+message DeleteProdutoResponse {
+    bool sucesso = 1;
 }

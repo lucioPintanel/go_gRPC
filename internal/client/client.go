@@ -44,7 +44,7 @@ func RunClient() {
 
 	// Atualizar um produto existente
 	reqUp := &pb.UpdateProdutoRequest{
-		Id:        2, // ID do produto a ser atualizado
+		Id:        3, // ID do produto a ser atualizado
 		Descricao: "Produto Atualizado",
 		Categoria: "Nova Categoria",
 	}
@@ -56,4 +56,21 @@ func RunClient() {
 	}
 	logs.Logger.Sugar().Debugf("Produto atualizado: ID=%d, Descricao=%s, DataCriacao=%s, Categoria=%s",
 		r.GetId(), r.GetDescricao(), r.GetDataCriacao(), r.GetCategoria())
+
+	// Deletar um produto existente
+	reqDel := &pb.DeleteProdutoRequest{
+		Id: 1, // ID do produto a ser deletado
+	}
+
+	// Enviar a solicitação ao servidor
+	rDel, err := client.DeleteProduto(ctx, reqDel)
+	if err != nil {
+		logs.Logger.Sugar().DPanicf("could not delete produto: %v", err)
+	}
+	if rDel.GetSucesso() {
+		logs.Logger.Sugar().Debugf("Produto deletado com sucesso: ID=%d", reqDel.GetId())
+	} else {
+		logs.Logger.Sugar().Debugf("Falha ao deletar o produto: ID=%d", reqDel.GetId())
+	}
+
 }

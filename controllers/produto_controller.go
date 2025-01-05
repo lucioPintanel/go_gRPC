@@ -63,6 +63,17 @@ func (c *ProdutoController) UpdateProduto(ctx context.Context, req *pb.UpdatePro
 	}, nil
 }
 
+func (c *ProdutoController) DeleteProduto(ctx context.Context, req *pb.DeleteProdutoRequest) (*pb.DeleteProdutoResponse, error) {
+	err := repositories.DeleteProduto(int(req.GetId()))
+	if err != nil {
+		return nil, err
+	}
+
+	return &pb.DeleteProdutoResponse{
+		Sucesso: true,
+	}, nil
+}
+
 func RegisterProdutoController(server *grpc.Server) {
 	pb.RegisterProdutoServiceServer(server, &ProdutoController{})
 }
