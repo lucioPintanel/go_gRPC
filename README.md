@@ -14,29 +14,39 @@ Este projeto tem como objetivo demonstrar o uso de Golang e gRPC para criar uma 
 ```
 go_gRPC/
 ┣ certs/
-┃ ┣ ca.crt
-┃ ┣ ca.key
-┃ ┣ ca.srl
-┃ ┣ client.crt
-┃ ┣ client.csr
-┃ ┗ client.key
 ┣ cmd/
 ┃ ┗ main.go
+┣ controllers/
+┃ ┗ produto_controller.go
 ┣ data/
+┃ ┣ config.yaml
+┃ ┗ database.db
 ┣ internal/
 ┃ ┣ client/
 ┃ ┃ ┗ client.go
 ┃ ┣ configs/
-┃ ┃ ┗ configs.go
+┃ ┃ ┣ configs.go
+┃ ┃ ┣ db.go
+┃ ┃ ┗ produto.go
 ┃ ┣ logs/
 ┃ ┃ ┗ logs.go
 ┃ ┣ servidor/
 ┃ ┃ ┗ servidor.go
 ┃ ┗ utils/
+┣ models/
+┃ ┗ produto.go
+┣ pb/
+┃ ┗ service.pb.go
 ┣ proto/
+┃ ┗ service.proto
+┣ repositories/
+┃ ┗ produto_repository.go
 ┣ scripts/
-┃ ┗ generate_certs.ps1
+┃ ┣ generate_certs.ps1
+┃ ┗ generate_pb.ps1
 ┣ .gitignore
+┣ go.mod
+┣ go.sum
 ┣ LICENSE
 ┗ README.md
 ```
@@ -55,10 +65,15 @@ go mod tidy
 
 Passo 3: Gerar Código a partir dos Arquivos .proto
 ```
-protoc --go_out=plugins=grpc:./proto ./proto/meu_servico.proto
+protoc --go_out=plugins=grpc:.\ proto\service.proto
 ```
 
 Passo 4: Executar o Servidor
 ```
-go run cmd/main.go
+go run cmd/main.go -s
+```
+
+Passo 5: Executar o Cliente
+```
+go run cmd/main.go -c
 ```
