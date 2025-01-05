@@ -74,6 +74,42 @@ func (c *ProdutoController) DeleteProduto(ctx context.Context, req *pb.DeletePro
 	}, nil
 }
 
+func (c *ProdutoController) SelectById(ctx context.Context, req *pb.SelectByIdRequest) (*pb.ProdutoResponse, error) {
+	produto, err := repositories.GetProdutoByID(int(req.GetId()))
+	if err != nil {
+		return nil, err
+	}
+
+	return &pb.ProdutoResponse{
+		Id:          int32(produto.ID),
+		Descricao:   produto.Descricao,
+		DataCriacao: produto.DataCriacao.Format(time.RFC3339),
+		Categoria:   produto.Categoria,
+	}, nil
+}
+
+func (c *ProdutoController) SelectAll(ctx context.Context, req *pb.SelectAllRequest) (*pb.SelectAllResponse, error) {
+	produtos, err := repositories.GetAllProdutos()
+	if err != nil {
+		return nil, err
+	}
+
+	var produtoResponses []*pb.ProdutoResponse
+	for _, produto := range produtos {
+		produtoResponse := &pb.ProdutoResponse{
+			Id:          int32(produto.ID),
+			Descricao:   produto.Descricao,
+			DataCriacao: produto.DataCriacao.Format(time.RFC3339),
+			Categoria:   produto.Categoria,
+		}
+		produtoResponses = append(produtoResponses, produtoResponse)
+	}
+
+	return &pb.SelectAllResponse{
+		Produtos: produtoResponses,
+	}, nil
+}
+
 func RegisterProdutoController(server *grpc.Server) {
 	pb.RegisterProdutoServiceServer(server, &ProdutoController{})
 }

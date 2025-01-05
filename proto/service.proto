@@ -6,8 +6,10 @@ option go_package = "./pb";
 
 service ProdutoService {
     rpc CreateProduto(CreateProdutoRequest) returns (ProdutoResponse);
-    rpc UpdateProduto(UpdateProdutoRequest) returns (ProdutoResponse); 
+    rpc UpdateProduto(UpdateProdutoRequest) returns (ProdutoResponse);
     rpc DeleteProduto(DeleteProdutoRequest) returns (DeleteProdutoResponse);
+    rpc SelectById(SelectByIdRequest) returns (ProdutoResponse);
+    rpc SelectAll(SelectAllRequest) returns (SelectAllResponse);
 }
 
 message CreateProdutoRequest {
@@ -21,17 +23,27 @@ message UpdateProdutoRequest {
     string categoria = 3;
 }
 
-message ProdutoResponse {
-    int32 id = 1;
-    string descricao = 2;
-    string data_criacao = 3;
-    string categoria = 4;
-}
-
 message DeleteProdutoRequest {
     int32 id = 1;
 }
 
 message DeleteProdutoResponse {
     bool sucesso = 1;
+}
+
+message SelectByIdRequest {
+    int32 id = 1;
+}
+
+message SelectAllRequest {}
+
+message SelectAllResponse {
+    repeated ProdutoResponse produtos = 1;
+}
+
+message ProdutoResponse {
+    int32 id = 1;
+    string descricao = 2;
+    string data_criacao = 3;
+    string categoria = 4;
 }

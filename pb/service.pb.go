@@ -136,6 +136,218 @@ func (x *UpdateProdutoRequest) GetCategoria() string {
 	return ""
 }
 
+type DeleteProdutoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteProdutoRequest) Reset() {
+	*x = DeleteProdutoRequest{}
+	mi := &file_proto_service_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteProdutoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteProdutoRequest) ProtoMessage() {}
+
+func (x *DeleteProdutoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteProdutoRequest.ProtoReflect.Descriptor instead.
+func (*DeleteProdutoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DeleteProdutoRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteProdutoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Sucesso       bool                   `protobuf:"varint,1,opt,name=sucesso,proto3" json:"sucesso,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteProdutoResponse) Reset() {
+	*x = DeleteProdutoResponse{}
+	mi := &file_proto_service_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteProdutoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteProdutoResponse) ProtoMessage() {}
+
+func (x *DeleteProdutoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteProdutoResponse.ProtoReflect.Descriptor instead.
+func (*DeleteProdutoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DeleteProdutoResponse) GetSucesso() bool {
+	if x != nil {
+		return x.Sucesso
+	}
+	return false
+}
+
+type SelectByIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectByIdRequest) Reset() {
+	*x = SelectByIdRequest{}
+	mi := &file_proto_service_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectByIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectByIdRequest) ProtoMessage() {}
+
+func (x *SelectByIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectByIdRequest.ProtoReflect.Descriptor instead.
+func (*SelectByIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SelectByIdRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type SelectAllRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectAllRequest) Reset() {
+	*x = SelectAllRequest{}
+	mi := &file_proto_service_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectAllRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectAllRequest) ProtoMessage() {}
+
+func (x *SelectAllRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectAllRequest.ProtoReflect.Descriptor instead.
+func (*SelectAllRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{5}
+}
+
+type SelectAllResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Produtos      []*ProdutoResponse     `protobuf:"bytes,1,rep,name=produtos,proto3" json:"produtos,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectAllResponse) Reset() {
+	*x = SelectAllResponse{}
+	mi := &file_proto_service_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectAllResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectAllResponse) ProtoMessage() {}
+
+func (x *SelectAllResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectAllResponse.ProtoReflect.Descriptor instead.
+func (*SelectAllResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *SelectAllResponse) GetProdutos() []*ProdutoResponse {
+	if x != nil {
+		return x.Produtos
+	}
+	return nil
+}
+
 type ProdutoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -148,7 +360,7 @@ type ProdutoResponse struct {
 
 func (x *ProdutoResponse) Reset() {
 	*x = ProdutoResponse{}
-	mi := &file_proto_service_proto_msgTypes[2]
+	mi := &file_proto_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -160,7 +372,7 @@ func (x *ProdutoResponse) String() string {
 func (*ProdutoResponse) ProtoMessage() {}
 
 func (x *ProdutoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_service_proto_msgTypes[2]
+	mi := &file_proto_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -173,7 +385,7 @@ func (x *ProdutoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProdutoResponse.ProtoReflect.Descriptor instead.
 func (*ProdutoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_service_proto_rawDescGZIP(), []int{2}
+	return file_proto_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ProdutoResponse) GetId() int32 {
@@ -204,94 +416,6 @@ func (x *ProdutoResponse) GetCategoria() string {
 	return ""
 }
 
-type DeleteProdutoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DeleteProdutoRequest) Reset() {
-	*x = DeleteProdutoRequest{}
-	mi := &file_proto_service_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteProdutoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteProdutoRequest) ProtoMessage() {}
-
-func (x *DeleteProdutoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_service_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteProdutoRequest.ProtoReflect.Descriptor instead.
-func (*DeleteProdutoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_service_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *DeleteProdutoRequest) GetId() int32 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-type DeleteProdutoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Sucesso       bool                   `protobuf:"varint,1,opt,name=sucesso,proto3" json:"sucesso,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DeleteProdutoResponse) Reset() {
-	*x = DeleteProdutoResponse{}
-	mi := &file_proto_service_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteProdutoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteProdutoResponse) ProtoMessage() {}
-
-func (x *DeleteProdutoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_service_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteProdutoResponse.ProtoReflect.Descriptor instead.
-func (*DeleteProdutoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_service_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *DeleteProdutoResponse) GetSucesso() bool {
-	if x != nil {
-		return x.Sucesso
-	}
-	return false
-}
-
 var File_proto_service_proto protoreflect.FileDescriptor
 
 var file_proto_service_proto_rawDesc = []byte{
@@ -308,35 +432,50 @@ var file_proto_service_proto_rawDesc = []byte{
 	0x61, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69,
 	0x63, 0x61, 0x6f, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61,
 	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69,
-	0x61, 0x22, 0x80, 0x01, 0x0a, 0x0f, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63,
-	0x61, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69,
-	0x63, 0x61, 0x6f, 0x12, 0x21, 0x0a, 0x0c, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x63, 0x72, 0x69, 0x61,
-	0x63, 0x61, 0x6f, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x61, 0x74, 0x61, 0x43,
-	0x72, 0x69, 0x61, 0x63, 0x61, 0x6f, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f,
-	0x72, 0x69, 0x61, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67,
-	0x6f, 0x72, 0x69, 0x61, 0x22, 0x26, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72,
-	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02,
-	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x22, 0x31, 0x0a, 0x15,
-	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x65, 0x73, 0x73, 0x6f,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x65, 0x73, 0x73, 0x6f, 0x32,
-	0xd6, 0x01, 0x0a, 0x0e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64,
-	0x75, 0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50,
-	0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e,
-	0x70, 0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64,
-	0x75, 0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50,
-	0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e,
-	0x70, 0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x44, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64,
-	0x75, 0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50,
-	0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e,
-	0x70, 0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x22, 0x26, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x22, 0x31, 0x0a, 0x15, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x65, 0x73, 0x73, 0x6f, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x65, 0x73, 0x73, 0x6f, 0x22, 0x23, 0x0a, 0x11,
+	0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69,
+	0x64, 0x22, 0x12, 0x0a, 0x10, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x6c, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x44, 0x0a, 0x11, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41,
+	0x6c, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x08, 0x70, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x73, 0x22, 0x80, 0x01, 0x0a, 0x0f,
+	0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x12, 0x21, 0x0a,
+	0x0c, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x63, 0x72, 0x69, 0x61, 0x63, 0x61, 0x6f, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x61, 0x74, 0x61, 0x43, 0x72, 0x69, 0x61, 0x63, 0x61, 0x6f,
+	0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x32, 0xca,
+	0x02, 0x0a, 0x0e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x44, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x70,
+	0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x0a, 0x53, 0x65, 0x6c, 0x65, 0x63,
+	0x74, 0x42, 0x79, 0x49, 0x64, 0x12, 0x15, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63,
+	0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x38, 0x0a, 0x09, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x6c, 0x12, 0x14,
+	0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74,
+	0x41, 0x6c, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e,
+	0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -351,26 +490,34 @@ func file_proto_service_proto_rawDescGZIP() []byte {
 	return file_proto_service_proto_rawDescData
 }
 
-var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_proto_service_proto_goTypes = []any{
 	(*CreateProdutoRequest)(nil),  // 0: pb.CreateProdutoRequest
 	(*UpdateProdutoRequest)(nil),  // 1: pb.UpdateProdutoRequest
-	(*ProdutoResponse)(nil),       // 2: pb.ProdutoResponse
-	(*DeleteProdutoRequest)(nil),  // 3: pb.DeleteProdutoRequest
-	(*DeleteProdutoResponse)(nil), // 4: pb.DeleteProdutoResponse
+	(*DeleteProdutoRequest)(nil),  // 2: pb.DeleteProdutoRequest
+	(*DeleteProdutoResponse)(nil), // 3: pb.DeleteProdutoResponse
+	(*SelectByIdRequest)(nil),     // 4: pb.SelectByIdRequest
+	(*SelectAllRequest)(nil),      // 5: pb.SelectAllRequest
+	(*SelectAllResponse)(nil),     // 6: pb.SelectAllResponse
+	(*ProdutoResponse)(nil),       // 7: pb.ProdutoResponse
 }
 var file_proto_service_proto_depIdxs = []int32{
-	0, // 0: pb.ProdutoService.CreateProduto:input_type -> pb.CreateProdutoRequest
-	1, // 1: pb.ProdutoService.UpdateProduto:input_type -> pb.UpdateProdutoRequest
-	3, // 2: pb.ProdutoService.DeleteProduto:input_type -> pb.DeleteProdutoRequest
-	2, // 3: pb.ProdutoService.CreateProduto:output_type -> pb.ProdutoResponse
-	2, // 4: pb.ProdutoService.UpdateProduto:output_type -> pb.ProdutoResponse
-	4, // 5: pb.ProdutoService.DeleteProduto:output_type -> pb.DeleteProdutoResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	7, // 0: pb.SelectAllResponse.produtos:type_name -> pb.ProdutoResponse
+	0, // 1: pb.ProdutoService.CreateProduto:input_type -> pb.CreateProdutoRequest
+	1, // 2: pb.ProdutoService.UpdateProduto:input_type -> pb.UpdateProdutoRequest
+	2, // 3: pb.ProdutoService.DeleteProduto:input_type -> pb.DeleteProdutoRequest
+	4, // 4: pb.ProdutoService.SelectById:input_type -> pb.SelectByIdRequest
+	5, // 5: pb.ProdutoService.SelectAll:input_type -> pb.SelectAllRequest
+	7, // 6: pb.ProdutoService.CreateProduto:output_type -> pb.ProdutoResponse
+	7, // 7: pb.ProdutoService.UpdateProduto:output_type -> pb.ProdutoResponse
+	3, // 8: pb.ProdutoService.DeleteProduto:output_type -> pb.DeleteProdutoResponse
+	7, // 9: pb.ProdutoService.SelectById:output_type -> pb.ProdutoResponse
+	6, // 10: pb.ProdutoService.SelectAll:output_type -> pb.SelectAllResponse
+	6, // [6:11] is the sub-list for method output_type
+	1, // [1:6] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_proto_service_proto_init() }
@@ -384,7 +531,7 @@ func file_proto_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -413,6 +560,8 @@ type ProdutoServiceClient interface {
 	CreateProduto(ctx context.Context, in *CreateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
 	UpdateProduto(ctx context.Context, in *UpdateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
 	DeleteProduto(ctx context.Context, in *DeleteProdutoRequest, opts ...grpc.CallOption) (*DeleteProdutoResponse, error)
+	SelectById(ctx context.Context, in *SelectByIdRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
+	SelectAll(ctx context.Context, in *SelectAllRequest, opts ...grpc.CallOption) (*SelectAllResponse, error)
 }
 
 type produtoServiceClient struct {
@@ -450,11 +599,31 @@ func (c *produtoServiceClient) DeleteProduto(ctx context.Context, in *DeleteProd
 	return out, nil
 }
 
+func (c *produtoServiceClient) SelectById(ctx context.Context, in *SelectByIdRequest, opts ...grpc.CallOption) (*ProdutoResponse, error) {
+	out := new(ProdutoResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/SelectById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *produtoServiceClient) SelectAll(ctx context.Context, in *SelectAllRequest, opts ...grpc.CallOption) (*SelectAllResponse, error) {
+	out := new(SelectAllResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/SelectAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProdutoServiceServer is the server API for ProdutoService service.
 type ProdutoServiceServer interface {
 	CreateProduto(context.Context, *CreateProdutoRequest) (*ProdutoResponse, error)
 	UpdateProduto(context.Context, *UpdateProdutoRequest) (*ProdutoResponse, error)
 	DeleteProduto(context.Context, *DeleteProdutoRequest) (*DeleteProdutoResponse, error)
+	SelectById(context.Context, *SelectByIdRequest) (*ProdutoResponse, error)
+	SelectAll(context.Context, *SelectAllRequest) (*SelectAllResponse, error)
 }
 
 // UnimplementedProdutoServiceServer can be embedded to have forward compatible implementations.
@@ -469,6 +638,12 @@ func (*UnimplementedProdutoServiceServer) UpdateProduto(context.Context, *Update
 }
 func (*UnimplementedProdutoServiceServer) DeleteProduto(context.Context, *DeleteProdutoRequest) (*DeleteProdutoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProduto not implemented")
+}
+func (*UnimplementedProdutoServiceServer) SelectById(context.Context, *SelectByIdRequest) (*ProdutoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectById not implemented")
+}
+func (*UnimplementedProdutoServiceServer) SelectAll(context.Context, *SelectAllRequest) (*SelectAllResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectAll not implemented")
 }
 
 func RegisterProdutoServiceServer(s *grpc.Server, srv ProdutoServiceServer) {
@@ -529,6 +704,42 @@ func _ProdutoService_DeleteProduto_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProdutoService_SelectById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdutoServiceServer).SelectById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.ProdutoService/SelectById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdutoServiceServer).SelectById(ctx, req.(*SelectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdutoService_SelectAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdutoServiceServer).SelectAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.ProdutoService/SelectAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdutoServiceServer).SelectAll(ctx, req.(*SelectAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _ProdutoService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pb.ProdutoService",
 	HandlerType: (*ProdutoServiceServer)(nil),
@@ -544,6 +755,14 @@ var _ProdutoService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteProduto",
 			Handler:    _ProdutoService_DeleteProduto_Handler,
+		},
+		{
+			MethodName: "SelectById",
+			Handler:    _ProdutoService_SelectById_Handler,
+		},
+		{
+			MethodName: "SelectAll",
+			Handler:    _ProdutoService_SelectAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
