@@ -31,7 +31,7 @@ func RunClient() {
 	// Criar um novo produto
 	req := &pb.CreateProdutoRequest{
 		Descricao: "Novo Produto",
-		Categoria: "Categoria Exemplo",
+		Categoria: "Categoria Exemplo 3",
 	}
 
 	// Enviar a solicitação ao servidor
@@ -40,5 +40,20 @@ func RunClient() {
 		logs.Logger.Sugar().DPanicf("could not create produto: %v", err)
 	}
 	logs.Logger.Sugar().Debugf("Produto criado: ID=%d, Descricao=%s, DataCriacao=%s, Categoria=%s",
+		r.GetId(), r.GetDescricao(), r.GetDataCriacao(), r.GetCategoria())
+
+	// Atualizar um produto existente
+	reqUp := &pb.UpdateProdutoRequest{
+		Id:        2, // ID do produto a ser atualizado
+		Descricao: "Produto Atualizado",
+		Categoria: "Nova Categoria",
+	}
+
+	// Enviar a solicitação ao servidor
+	r, err = client.UpdateProduto(ctx, reqUp)
+	if err != nil {
+		logs.Logger.Sugar().DPanicf("could not update produto: %v", err)
+	}
+	logs.Logger.Sugar().Debugf("Produto atualizado: ID=%d, Descricao=%s, DataCriacao=%s, Categoria=%s",
 		r.GetId(), r.GetDescricao(), r.GetDataCriacao(), r.GetCategoria())
 }

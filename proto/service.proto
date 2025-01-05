@@ -6,12 +6,18 @@ option go_package = "./pb";
 
 service ProdutoService {
     rpc CreateProduto(CreateProdutoRequest) returns (ProdutoResponse);
-    // Outras operações CRUD (GetProdutoByID, UpdateProduto, DeleteProduto, GetAllProdutos)
+    rpc UpdateProduto(UpdateProdutoRequest) returns (ProdutoResponse);  // Novo método
 }
 
 message CreateProdutoRequest {
     string descricao = 1;
     string categoria = 2;
+}
+
+message UpdateProdutoRequest {
+    int32 id = 1;
+    string descricao = 2;
+    string categoria = 3;
 }
 
 message ProdutoResponse {
