@@ -1,7 +1,7 @@
 package server
 
 import (
-	"context"
+	"grpccli_srv/controllers"
 	"net"
 	"os"
 
@@ -12,12 +12,11 @@ import (
 )
 
 type Server struct {
-	pb.UnimplementedMeuServicoServer
+	pb.UnimplementedProdutoServiceServer
 }
 
 func NewGRPCServer() *grpc.Server {
 	s := grpc.NewServer()
-	pb.RegisterMeuServicoServer(s, &Server{})
 	return s
 }
 
@@ -30,15 +29,14 @@ func (s *Server) Start() {
 		os.Exit(1)
 	}
 	grpcServer := NewGRPCServer()
+
+	// Registrar o controlador do produto apenas aqui
+	controllers.RegisterProdutoController(grpcServer)
+
 	err = grpcServer.Serve(lis)
 	if err != nil {
 		logs.Logger.Sugar().Errorf("Falha em inicializar o servidor")
 		os.Exit(1)
 	}
-	logs.Logger.Info("Finilizando o servidor")
-}
-
-func (s *Server) MeuMetodo(ctx context.Context, req *pb.MeuRequest) (*pb.MeuResponse, error) {
-	logs.Logger.Sugar().Infof("Recebido pedido: %v", req.Mensagem)
-	return &pb.MeuResponse{Resposta: "Mensagem recebida: " + req.Mensagem}, nil
+	logs.Logger.Info("Finalizando o servidor")
 }

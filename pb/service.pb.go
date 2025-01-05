@@ -24,27 +24,28 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type MeuRequest struct {
+type CreateProdutoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mensagem      string                 `protobuf:"bytes,1,opt,name=mensagem,proto3" json:"mensagem,omitempty"`
+	Descricao     string                 `protobuf:"bytes,1,opt,name=descricao,proto3" json:"descricao,omitempty"`
+	Categoria     string                 `protobuf:"bytes,2,opt,name=categoria,proto3" json:"categoria,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MeuRequest) Reset() {
-	*x = MeuRequest{}
+func (x *CreateProdutoRequest) Reset() {
+	*x = CreateProdutoRequest{}
 	mi := &file_proto_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MeuRequest) String() string {
+func (x *CreateProdutoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MeuRequest) ProtoMessage() {}
+func (*CreateProdutoRequest) ProtoMessage() {}
 
-func (x *MeuRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateProdutoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -56,39 +57,48 @@ func (x *MeuRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MeuRequest.ProtoReflect.Descriptor instead.
-func (*MeuRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateProdutoRequest.ProtoReflect.Descriptor instead.
+func (*CreateProdutoRequest) Descriptor() ([]byte, []int) {
 	return file_proto_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MeuRequest) GetMensagem() string {
+func (x *CreateProdutoRequest) GetDescricao() string {
 	if x != nil {
-		return x.Mensagem
+		return x.Descricao
 	}
 	return ""
 }
 
-type MeuResponse struct {
+func (x *CreateProdutoRequest) GetCategoria() string {
+	if x != nil {
+		return x.Categoria
+	}
+	return ""
+}
+
+type UpdateProdutoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Resposta      string                 `protobuf:"bytes,1,opt,name=resposta,proto3" json:"resposta,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Descricao     string                 `protobuf:"bytes,2,opt,name=descricao,proto3" json:"descricao,omitempty"`
+	Categoria     string                 `protobuf:"bytes,3,opt,name=categoria,proto3" json:"categoria,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MeuResponse) Reset() {
-	*x = MeuResponse{}
+func (x *UpdateProdutoRequest) Reset() {
+	*x = UpdateProdutoRequest{}
 	mi := &file_proto_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MeuResponse) String() string {
+func (x *UpdateProdutoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MeuResponse) ProtoMessage() {}
+func (*UpdateProdutoRequest) ProtoMessage() {}
 
-func (x *MeuResponse) ProtoReflect() protoreflect.Message {
+func (x *UpdateProdutoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -100,14 +110,308 @@ func (x *MeuResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MeuResponse.ProtoReflect.Descriptor instead.
-func (*MeuResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateProdutoRequest.ProtoReflect.Descriptor instead.
+func (*UpdateProdutoRequest) Descriptor() ([]byte, []int) {
 	return file_proto_service_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MeuResponse) GetResposta() string {
+func (x *UpdateProdutoRequest) GetId() int32 {
 	if x != nil {
-		return x.Resposta
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateProdutoRequest) GetDescricao() string {
+	if x != nil {
+		return x.Descricao
+	}
+	return ""
+}
+
+func (x *UpdateProdutoRequest) GetCategoria() string {
+	if x != nil {
+		return x.Categoria
+	}
+	return ""
+}
+
+type DeleteProdutoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteProdutoRequest) Reset() {
+	*x = DeleteProdutoRequest{}
+	mi := &file_proto_service_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteProdutoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteProdutoRequest) ProtoMessage() {}
+
+func (x *DeleteProdutoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteProdutoRequest.ProtoReflect.Descriptor instead.
+func (*DeleteProdutoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DeleteProdutoRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteProdutoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Sucesso       bool                   `protobuf:"varint,1,opt,name=sucesso,proto3" json:"sucesso,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteProdutoResponse) Reset() {
+	*x = DeleteProdutoResponse{}
+	mi := &file_proto_service_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteProdutoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteProdutoResponse) ProtoMessage() {}
+
+func (x *DeleteProdutoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteProdutoResponse.ProtoReflect.Descriptor instead.
+func (*DeleteProdutoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DeleteProdutoResponse) GetSucesso() bool {
+	if x != nil {
+		return x.Sucesso
+	}
+	return false
+}
+
+type SelectByIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectByIdRequest) Reset() {
+	*x = SelectByIdRequest{}
+	mi := &file_proto_service_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectByIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectByIdRequest) ProtoMessage() {}
+
+func (x *SelectByIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectByIdRequest.ProtoReflect.Descriptor instead.
+func (*SelectByIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SelectByIdRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type SelectAllRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectAllRequest) Reset() {
+	*x = SelectAllRequest{}
+	mi := &file_proto_service_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectAllRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectAllRequest) ProtoMessage() {}
+
+func (x *SelectAllRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectAllRequest.ProtoReflect.Descriptor instead.
+func (*SelectAllRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{5}
+}
+
+type SelectAllResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Produtos      []*ProdutoResponse     `protobuf:"bytes,1,rep,name=produtos,proto3" json:"produtos,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectAllResponse) Reset() {
+	*x = SelectAllResponse{}
+	mi := &file_proto_service_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectAllResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectAllResponse) ProtoMessage() {}
+
+func (x *SelectAllResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectAllResponse.ProtoReflect.Descriptor instead.
+func (*SelectAllResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *SelectAllResponse) GetProdutos() []*ProdutoResponse {
+	if x != nil {
+		return x.Produtos
+	}
+	return nil
+}
+
+type ProdutoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Descricao     string                 `protobuf:"bytes,2,opt,name=descricao,proto3" json:"descricao,omitempty"`
+	DataCriacao   string                 `protobuf:"bytes,3,opt,name=data_criacao,json=dataCriacao,proto3" json:"data_criacao,omitempty"`
+	Categoria     string                 `protobuf:"bytes,4,opt,name=categoria,proto3" json:"categoria,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProdutoResponse) Reset() {
+	*x = ProdutoResponse{}
+	mi := &file_proto_service_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProdutoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProdutoResponse) ProtoMessage() {}
+
+func (x *ProdutoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProdutoResponse.ProtoReflect.Descriptor instead.
+func (*ProdutoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ProdutoResponse) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ProdutoResponse) GetDescricao() string {
+	if x != nil {
+		return x.Descricao
+	}
+	return ""
+}
+
+func (x *ProdutoResponse) GetDataCriacao() string {
+	if x != nil {
+		return x.DataCriacao
+	}
+	return ""
+}
+
+func (x *ProdutoResponse) GetCategoria() string {
+	if x != nil {
+		return x.Categoria
 	}
 	return ""
 }
@@ -116,19 +420,62 @@ var File_proto_service_proto protoreflect.FileDescriptor
 
 var file_proto_service_proto_rawDesc = []byte{
 	0x0a, 0x13, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x67, 0x72, 0x70, 0x63, 0x63, 0x6c, 0x69, 0x5f, 0x73,
-	0x72, 0x76, 0x22, 0x28, 0x0a, 0x0a, 0x4d, 0x65, 0x75, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x6e, 0x73, 0x61, 0x67, 0x65, 0x6d, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x6e, 0x73, 0x61, 0x67, 0x65, 0x6d, 0x22, 0x29, 0x0a, 0x0b,
-	0x4d, 0x65, 0x75, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x72,
-	0x65, 0x73, 0x70, 0x6f, 0x73, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x72,
-	0x65, 0x73, 0x70, 0x6f, 0x73, 0x74, 0x61, 0x32, 0x4c, 0x0a, 0x0a, 0x4d, 0x65, 0x75, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x6f, 0x12, 0x3e, 0x0a, 0x09, 0x4d, 0x65, 0x75, 0x4d, 0x65, 0x74, 0x6f,
-	0x64, 0x6f, 0x12, 0x17, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x63, 0x6c, 0x69, 0x5f, 0x73, 0x72, 0x76,
-	0x2e, 0x4d, 0x65, 0x75, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x67, 0x72,
-	0x70, 0x63, 0x63, 0x6c, 0x69, 0x5f, 0x73, 0x72, 0x76, 0x2e, 0x4d, 0x65, 0x75, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x02, 0x70, 0x62, 0x22, 0x52, 0x0a, 0x14, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x12,
+	0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x22, 0x62, 0x0a,
+	0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63,
+	0x61, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69,
+	0x63, 0x61, 0x6f, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69,
+	0x61, 0x22, 0x26, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x22, 0x31, 0x0a, 0x15, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x65, 0x73, 0x73, 0x6f, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x65, 0x73, 0x73, 0x6f, 0x22, 0x23, 0x0a, 0x11,
+	0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69,
+	0x64, 0x22, 0x12, 0x0a, 0x10, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x6c, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x44, 0x0a, 0x11, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41,
+	0x6c, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x08, 0x70, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x73, 0x22, 0x80, 0x01, 0x0a, 0x0f,
+	0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x1c, 0x0a, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x09, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x63, 0x61, 0x6f, 0x12, 0x21, 0x0a,
+	0x0c, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x63, 0x72, 0x69, 0x61, 0x63, 0x61, 0x6f, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x61, 0x74, 0x61, 0x43, 0x72, 0x69, 0x61, 0x63, 0x61, 0x6f,
+	0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x61, 0x32, 0xca,
+	0x02, 0x0a, 0x0e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x44, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75,
+	0x74, 0x6f, 0x12, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x70,
+	0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x0a, 0x53, 0x65, 0x6c, 0x65, 0x63,
+	0x74, 0x42, 0x79, 0x49, 0x64, 0x12, 0x15, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63,
+	0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70,
+	0x62, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x38, 0x0a, 0x09, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x6c, 0x12, 0x14,
+	0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74,
+	0x41, 0x6c, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e,
+	0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -143,19 +490,34 @@ func file_proto_service_proto_rawDescGZIP() []byte {
 	return file_proto_service_proto_rawDescData
 }
 
-var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_proto_service_proto_goTypes = []any{
-	(*MeuRequest)(nil),  // 0: grpccli_srv.MeuRequest
-	(*MeuResponse)(nil), // 1: grpccli_srv.MeuResponse
+	(*CreateProdutoRequest)(nil),  // 0: pb.CreateProdutoRequest
+	(*UpdateProdutoRequest)(nil),  // 1: pb.UpdateProdutoRequest
+	(*DeleteProdutoRequest)(nil),  // 2: pb.DeleteProdutoRequest
+	(*DeleteProdutoResponse)(nil), // 3: pb.DeleteProdutoResponse
+	(*SelectByIdRequest)(nil),     // 4: pb.SelectByIdRequest
+	(*SelectAllRequest)(nil),      // 5: pb.SelectAllRequest
+	(*SelectAllResponse)(nil),     // 6: pb.SelectAllResponse
+	(*ProdutoResponse)(nil),       // 7: pb.ProdutoResponse
 }
 var file_proto_service_proto_depIdxs = []int32{
-	0, // 0: grpccli_srv.MeuServico.MeuMetodo:input_type -> grpccli_srv.MeuRequest
-	1, // 1: grpccli_srv.MeuServico.MeuMetodo:output_type -> grpccli_srv.MeuResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	7, // 0: pb.SelectAllResponse.produtos:type_name -> pb.ProdutoResponse
+	0, // 1: pb.ProdutoService.CreateProduto:input_type -> pb.CreateProdutoRequest
+	1, // 2: pb.ProdutoService.UpdateProduto:input_type -> pb.UpdateProdutoRequest
+	2, // 3: pb.ProdutoService.DeleteProduto:input_type -> pb.DeleteProdutoRequest
+	4, // 4: pb.ProdutoService.SelectById:input_type -> pb.SelectByIdRequest
+	5, // 5: pb.ProdutoService.SelectAll:input_type -> pb.SelectAllRequest
+	7, // 6: pb.ProdutoService.CreateProduto:output_type -> pb.ProdutoResponse
+	7, // 7: pb.ProdutoService.UpdateProduto:output_type -> pb.ProdutoResponse
+	3, // 8: pb.ProdutoService.DeleteProduto:output_type -> pb.DeleteProdutoResponse
+	7, // 9: pb.ProdutoService.SelectById:output_type -> pb.ProdutoResponse
+	6, // 10: pb.ProdutoService.SelectAll:output_type -> pb.SelectAllResponse
+	6, // [6:11] is the sub-list for method output_type
+	1, // [1:6] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_proto_service_proto_init() }
@@ -169,7 +531,7 @@ func file_proto_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -191,72 +553,216 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// MeuServicoClient is the client API for MeuServico service.
+// ProdutoServiceClient is the client API for ProdutoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type MeuServicoClient interface {
-	MeuMetodo(ctx context.Context, in *MeuRequest, opts ...grpc.CallOption) (*MeuResponse, error)
+type ProdutoServiceClient interface {
+	CreateProduto(ctx context.Context, in *CreateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
+	UpdateProduto(ctx context.Context, in *UpdateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
+	DeleteProduto(ctx context.Context, in *DeleteProdutoRequest, opts ...grpc.CallOption) (*DeleteProdutoResponse, error)
+	SelectById(ctx context.Context, in *SelectByIdRequest, opts ...grpc.CallOption) (*ProdutoResponse, error)
+	SelectAll(ctx context.Context, in *SelectAllRequest, opts ...grpc.CallOption) (*SelectAllResponse, error)
 }
 
-type meuServicoClient struct {
+type produtoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMeuServicoClient(cc grpc.ClientConnInterface) MeuServicoClient {
-	return &meuServicoClient{cc}
+func NewProdutoServiceClient(cc grpc.ClientConnInterface) ProdutoServiceClient {
+	return &produtoServiceClient{cc}
 }
 
-func (c *meuServicoClient) MeuMetodo(ctx context.Context, in *MeuRequest, opts ...grpc.CallOption) (*MeuResponse, error) {
-	out := new(MeuResponse)
-	err := c.cc.Invoke(ctx, "/grpccli_srv.MeuServico/MeuMetodo", in, out, opts...)
+func (c *produtoServiceClient) CreateProduto(ctx context.Context, in *CreateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error) {
+	out := new(ProdutoResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/CreateProduto", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MeuServicoServer is the server API for MeuServico service.
-type MeuServicoServer interface {
-	MeuMetodo(context.Context, *MeuRequest) (*MeuResponse, error)
+func (c *produtoServiceClient) UpdateProduto(ctx context.Context, in *UpdateProdutoRequest, opts ...grpc.CallOption) (*ProdutoResponse, error) {
+	out := new(ProdutoResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/UpdateProduto", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedMeuServicoServer can be embedded to have forward compatible implementations.
-type UnimplementedMeuServicoServer struct {
+func (c *produtoServiceClient) DeleteProduto(ctx context.Context, in *DeleteProdutoRequest, opts ...grpc.CallOption) (*DeleteProdutoResponse, error) {
+	out := new(DeleteProdutoResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/DeleteProduto", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-func (*UnimplementedMeuServicoServer) MeuMetodo(context.Context, *MeuRequest) (*MeuResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method MeuMetodo not implemented")
+func (c *produtoServiceClient) SelectById(ctx context.Context, in *SelectByIdRequest, opts ...grpc.CallOption) (*ProdutoResponse, error) {
+	out := new(ProdutoResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/SelectById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-func RegisterMeuServicoServer(s *grpc.Server, srv MeuServicoServer) {
-	s.RegisterService(&_MeuServico_serviceDesc, srv)
+func (c *produtoServiceClient) SelectAll(ctx context.Context, in *SelectAllRequest, opts ...grpc.CallOption) (*SelectAllResponse, error) {
+	out := new(SelectAllResponse)
+	err := c.cc.Invoke(ctx, "/pb.ProdutoService/SelectAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-func _MeuServico_MeuMetodo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MeuRequest)
+// ProdutoServiceServer is the server API for ProdutoService service.
+type ProdutoServiceServer interface {
+	CreateProduto(context.Context, *CreateProdutoRequest) (*ProdutoResponse, error)
+	UpdateProduto(context.Context, *UpdateProdutoRequest) (*ProdutoResponse, error)
+	DeleteProduto(context.Context, *DeleteProdutoRequest) (*DeleteProdutoResponse, error)
+	SelectById(context.Context, *SelectByIdRequest) (*ProdutoResponse, error)
+	SelectAll(context.Context, *SelectAllRequest) (*SelectAllResponse, error)
+}
+
+// UnimplementedProdutoServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedProdutoServiceServer struct {
+}
+
+func (*UnimplementedProdutoServiceServer) CreateProduto(context.Context, *CreateProdutoRequest) (*ProdutoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProduto not implemented")
+}
+func (*UnimplementedProdutoServiceServer) UpdateProduto(context.Context, *UpdateProdutoRequest) (*ProdutoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateProduto not implemented")
+}
+func (*UnimplementedProdutoServiceServer) DeleteProduto(context.Context, *DeleteProdutoRequest) (*DeleteProdutoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteProduto not implemented")
+}
+func (*UnimplementedProdutoServiceServer) SelectById(context.Context, *SelectByIdRequest) (*ProdutoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectById not implemented")
+}
+func (*UnimplementedProdutoServiceServer) SelectAll(context.Context, *SelectAllRequest) (*SelectAllResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectAll not implemented")
+}
+
+func RegisterProdutoServiceServer(s *grpc.Server, srv ProdutoServiceServer) {
+	s.RegisterService(&_ProdutoService_serviceDesc, srv)
+}
+
+func _ProdutoService_CreateProduto_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProdutoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeuServicoServer).MeuMetodo(ctx, in)
+		return srv.(ProdutoServiceServer).CreateProduto(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpccli_srv.MeuServico/MeuMetodo",
+		FullMethod: "/pb.ProdutoService/CreateProduto",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeuServicoServer).MeuMetodo(ctx, req.(*MeuRequest))
+		return srv.(ProdutoServiceServer).CreateProduto(ctx, req.(*CreateProdutoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _MeuServico_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "grpccli_srv.MeuServico",
-	HandlerType: (*MeuServicoServer)(nil),
+func _ProdutoService_UpdateProduto_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateProdutoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdutoServiceServer).UpdateProduto(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.ProdutoService/UpdateProduto",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdutoServiceServer).UpdateProduto(ctx, req.(*UpdateProdutoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdutoService_DeleteProduto_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteProdutoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdutoServiceServer).DeleteProduto(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.ProdutoService/DeleteProduto",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdutoServiceServer).DeleteProduto(ctx, req.(*DeleteProdutoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdutoService_SelectById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdutoServiceServer).SelectById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.ProdutoService/SelectById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdutoServiceServer).SelectById(ctx, req.(*SelectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdutoService_SelectAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdutoServiceServer).SelectAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.ProdutoService/SelectAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdutoServiceServer).SelectAll(ctx, req.(*SelectAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _ProdutoService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "pb.ProdutoService",
+	HandlerType: (*ProdutoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "MeuMetodo",
-			Handler:    _MeuServico_MeuMetodo_Handler,
+			MethodName: "CreateProduto",
+			Handler:    _ProdutoService_CreateProduto_Handler,
+		},
+		{
+			MethodName: "UpdateProduto",
+			Handler:    _ProdutoService_UpdateProduto_Handler,
+		},
+		{
+			MethodName: "DeleteProduto",
+			Handler:    _ProdutoService_DeleteProduto_Handler,
+		},
+		{
+			MethodName: "SelectById",
+			Handler:    _ProdutoService_SelectById_Handler,
+		},
+		{
+			MethodName: "SelectAll",
+			Handler:    _ProdutoService_SelectAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
