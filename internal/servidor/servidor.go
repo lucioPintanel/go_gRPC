@@ -1,14 +1,14 @@
 package server
 
 import (
-	"grpccli_srv/pb"
+	"context"
 	"net"
 	"os"
 
 	logs "grpccli_srv/internal/logs"
+	"grpccli_srv/pb"
 
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 )
 
 type Server struct {
@@ -16,13 +16,7 @@ type Server struct {
 }
 
 func NewGRPCServer() *grpc.Server {
-	certFile := "certificados/server.crt"
-	keyFile := "certificados/server.key"
-	creds, err := credentials.NewServerTLSFromFile(certFile, keyFile)
-	if err != nil {
-		os.Exit(1)
-	}
-	s := grpc.NewServer(grpc.Creds(creds))
+	s := grpc.NewServer()
 	pb.RegisterMeuServicoServer(s, &Server{})
 	return s
 }
@@ -32,10 +26,19 @@ func (s *Server) Start() {
 
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
+		logs.Logger.Sugar().Errorf("Falha em inicializar listen")
 		os.Exit(1)
 	}
 	grpcServer := NewGRPCServer()
-	if err := grpcServer.Serve(lis); err != nil {
+	err = grpcServer.Serve(lis)
+	if err != nil {
+		logs.Logger.Sugar().Errorf("Falha em inicializar o servidor")
 		os.Exit(1)
 	}
+	logs.Logger.Info("Finilizando o servidor")
+}
+
+func (s *Server) MeuMetodo(ctx context.Context, req *pb.MeuRequest) (*pb.MeuResponse, error) {
+	logs.Logger.Sugar().Infof("Recebido pedido: %v", req.Mensagem)
+	return &pb.MeuResponse{Resposta: "Mensagem recebida: " + req.Mensagem}, nil
 }
