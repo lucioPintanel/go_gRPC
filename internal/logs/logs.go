@@ -38,7 +38,7 @@ func InitLogs() {
 	var cfg Config
 
 	// Leitura do arquivo de configuração
-	configFile, err := os.ReadFile("data/config_log.yaml")
+	configFile, err := os.ReadFile("data/config.yaml")
 	if err != nil {
 		fmt.Printf("Erro ao ler o arquivo de configuração: %v\n", err)
 		os.Exit(1)

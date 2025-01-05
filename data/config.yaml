@@ -17,3 +17,8 @@ logging:
     timeEncoder: "iso8601"
     durationEncoder: "string"
     callerEncoder: "fullpath"
+
+# Configurações do banco de dados
+database:
+  driver: sqlite3
+  datasource: ./data/database.db

@@ -6,6 +6,7 @@ import (
 	"os"
 
 	cli "grpccli_srv/internal/client"
+	"grpccli_srv/internal/configs"
 	logs "grpccli_srv/internal/logs"
 	server "grpccli_srv/internal/servidor"
 )
@@ -21,6 +22,9 @@ func main() {
 
 	// Inicializando o log
 	logs.Logger.Info("Iniciando aplicação...")
+
+	configs.LoadConfig()
+	configs.InitDB()
 
 	if *client {
 		// Lógica do cliente
