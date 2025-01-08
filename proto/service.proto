@@ -1,49 +1,62 @@
-syntax = "proto3";
+syntax = "proto3"; // Definindo a versão da sintaxe do Protobuf.
 
-package pb;
+package pb; // Definindo o pacote para as mensagens Protobuf.
 
-option go_package = "./pb";
+option go_package = "./pb"; // Definindo o pacote Go para o código gerado.
 
 service ProdutoService {
+    // Cria um novo produto.
     rpc CreateProduto(CreateProdutoRequest) returns (ProdutoResponse);
+    // Atualiza um produto existente.
     rpc UpdateProduto(UpdateProdutoRequest) returns (ProdutoResponse);
+    // Deleta um produto pelo ID.
     rpc DeleteProduto(DeleteProdutoRequest) returns (DeleteProdutoResponse);
+    // Seleciona um produto pelo ID.
     rpc SelectById(SelectByIdRequest) returns (ProdutoResponse);
+    // Seleciona todos os produtos.
     rpc SelectAll(SelectAllRequest) returns (SelectAllResponse);
 }
 
+// Mensagem para a requisição de criação de produto.
 message CreateProdutoRequest {
-    string descricao = 1;
-    string categoria = 2;
+    string descricao = 1; // Descrição do produto.
+    string categoria = 2; // Categoria do produto.
 }
 
+// Mensagem para a requisição de atualização de produto.
 message UpdateProdutoRequest {
-    int32 id = 1;
-    string descricao = 2;
-    string categoria = 3;
+    int32 id = 1;        // ID do produto.
+    string descricao = 2; // Descrição do produto.
+    string categoria = 3; // Categoria do produto.
 }
 
+// Mensagem para a requisição de deleção de produto.
 message DeleteProdutoRequest {
-    int32 id = 1;
+    int32 id = 1; // ID do produto a ser deletado.
 }
 
+// Resposta para a deleção de produto.
 message DeleteProdutoResponse {
-    bool sucesso = 1;
+    bool sucesso = 1; // Indica se a operação foi bem-sucedida.
 }
 
+// Mensagem para a requisição de seleção de produto por ID.
 message SelectByIdRequest {
-    int32 id = 1;
+    int32 id = 1; // ID do produto a ser selecionado.
 }
 
+// Mensagem para a requisição de seleção de todos os produtos.
 message SelectAllRequest {}
 
+// Resposta para a seleção de todos os produtos.
 message SelectAllResponse {
-    repeated ProdutoResponse produtos = 1;
+    repeated ProdutoResponse produtos = 1; // Lista de produtos.
 }
 
+// Resposta para a criação, atualização e seleção de produto.
 message ProdutoResponse {
-    int32 id = 1;
-    string descricao = 2;
-    string data_criacao = 3;
-    string categoria = 4;
+    int32 id = 1;          // ID do produto.
+    string descricao = 2;  // Descrição do produto.
+    string data_criacao = 3; // Data de criação do produto.
+    string categoria = 4;  // Categoria do produto.
 }
