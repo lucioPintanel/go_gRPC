@@ -53,8 +53,8 @@ go_gRPC/
 ## Como Executar
 Passo 1: Clonar o Repositório
 ```
-git clone https://github.com/usuario/meu_projeto.git
-cd meu_projeto
+git clone https://github.com/lucioPintanel/go_gRPC.git
+cd go_gRPC
 ```
 
 Passo 2: Instalar Dependências
