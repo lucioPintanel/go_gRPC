@@ -7,7 +7,6 @@ Este projeto tem como objetivo demonstrar o uso de Golang e gRPC para criar uma 
 - Go 1.16 ou superior
 - gRPC
 - Protocolo Buffers
-- Certificados SSL (server.crt e server.key)
 - Git
 
 ## Estrutura do Projeto
@@ -76,4 +75,9 @@ go run cmd/main.go -s
 Passo 5: Executar o Cliente
 ```
 go run cmd/main.go -c
+```
+
+Passo 6: Gerar a documentação e Executar o browser
+```
+.\scripts\generate_doc.ps1
 ```
