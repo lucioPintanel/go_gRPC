@@ -62,22 +62,17 @@ Passo 2: Instalar Dependências
 go mod tidy
 ```
 
-Passo 3: Gerar Código a partir dos Arquivos .proto
-```
-protoc --go_out=plugins=grpc:.\ proto\service.proto
-```
-
-Passo 4: Executar o Servidor
+Passo 3: Executar o Servidor
 ```
 go run cmd/main.go -s
 ```
 
-Passo 5: Executar o Cliente
+Passo 4: Executar o Cliente
 ```
 go run cmd/main.go -c
 ```
 
-Passo 6: Gerar a documentação e Executar o browser
+Passo 5: Gerar a documentação e Executar o browser
 ```
 .\scripts\generate_doc.ps1
 ```
